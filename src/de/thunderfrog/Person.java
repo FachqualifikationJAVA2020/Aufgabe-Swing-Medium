@@ -1,20 +1,25 @@
 package de.thunderfrog;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Person {
     private String firstName;
     private String lastName;
     private String job;
-    private ArrayList<String> jobs = new ArrayList<>();
+    private static final String[] jobnames = {"Sänger/in","Regisseur/in","Kameramann/frau" ,"Hauptdarsteller/in"};
+    public static final ArrayList<String> jobs = new ArrayList<>(Arrays.asList(jobnames));
 
     public Person(String firstName, String lastName, String job) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.job = job;
+        MainApp.cbPerson.addItem(this);
+        MediumGUI.cbPerson.addItem(this);
     }
 
-    public Person() {
+    public static ArrayList<String> getJobs() {
+        return jobs;
     }
 
     public String getFirstName() {
@@ -39,17 +44,6 @@ public class Person {
 
     public void setJob(String job) {
         this.job = job;
-    }
-
-    public ArrayList<String> addSomeJobs(){
-        jobs.add("Sänger/in");
-        jobs.add("Regisseur/in");
-        jobs.add("Kameramann/frau");
-        jobs.add("Stuntman/women");
-        jobs.add("Hauptdarsteller/in");
-        jobs.add("Tontechniker/in");
-        jobs.add("Catering");
-        return jobs;
     }
 
     @Override

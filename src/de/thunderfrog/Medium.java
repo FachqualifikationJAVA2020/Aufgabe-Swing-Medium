@@ -1,6 +1,5 @@
 package de.thunderfrog;
 
-import java.util.ArrayList;
 
 public class Medium {
 
@@ -12,14 +11,15 @@ public class Medium {
     //  Creator of the Medium
     private Person creator;
 
-    //  Medium ArrayList
-    private final ArrayList<Medium> medium = new ArrayList<>();
-
     public Medium(String mTitle, double mCost, String mType, Person creator) {
         this.mTitle = mTitle;
         this.mCost = mCost;
         this.mType = mType;
         this.creator = creator;
+        MainApp.cbMedium.addItem(this);
+    }
+
+    public Medium() {
     }
 
     public String getmTitle() {
@@ -56,12 +56,6 @@ public class Medium {
 
     @Override
     public String toString() {
-        return "Medium{" +
-                "mTitle='" + mTitle + '\'' +
-                ", mCost=" + mCost +
-                ", mType='" + mType + '\'' +
-                ", creator=" + creator +
-                ", medium=" + medium +
-                '}';
+        return getmTitle() + " | " + getmCost();
     }
 }
